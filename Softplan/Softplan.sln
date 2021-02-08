@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softplan.Api.Teste", "testes\Softplan.Api.Teste\Softplan.Api.Teste.csproj", "{98BC1AC6-B8B9-428B-AAD1-F54FF15828AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softplan.Api", "fontes\Softplan.Api\Softplan.Api.csproj", "{D1EA353B-89ED-4259-B6BB-E21FA4B8DEA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{98BC1AC6-B8B9-428B-AAD1-F54FF15828AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98BC1AC6-B8B9-428B-AAD1-F54FF15828AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98BC1AC6-B8B9-428B-AAD1-F54FF15828AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1EA353B-89ED-4259-B6BB-E21FA4B8DEA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1EA353B-89ED-4259-B6BB-E21FA4B8DEA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1EA353B-89ED-4259-B6BB-E21FA4B8DEA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1EA353B-89ED-4259-B6BB-E21FA4B8DEA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
