@@ -35,5 +35,21 @@ namespace Softplan.Api.Teste.Controllers
         }
 
         #endregion TaxaJuros
+
+        #region Calcula Juros
+
+        [Fact]
+        public async Task FinanceiroController_Calcula_ValorZeroPontoZeroUm()
+        {
+            Assert.True(false);
+        }
+
+        [Fact]
+        public async Task FinanceiroController_CalculaJuros_StatusOk()
+        {
+            Assert.True(false);
+        }
+
+        #endregion Calcula Juros
     }
 }
