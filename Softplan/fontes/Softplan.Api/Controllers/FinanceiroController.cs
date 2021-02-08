@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Softplan.Api.Camadas.Dominio;
 using System;
 using System.Web;
 
@@ -14,7 +15,7 @@ namespace Softplan.Api.Controllers
         /// <response code="200"></response>
         /// <returns>Taxa de Juros</returns>
         [HttpGet, Route("taxaJuros"), ProducesResponseType(typeof(decimal), 200)]
-        public decimal TaxaJuros() => 0.01M;
+        public decimal TaxaJuros() => Juros.TaxaJurosPadrao;
 
 
         /// <summary>
@@ -25,21 +26,15 @@ namespace Softplan.Api.Controllers
         /// <response code="200"></response>
         /// <returns></returns>
         [HttpGet, Route("calculaJuros"), ProducesResponseType(typeof(decimal), 200)]
-        public decimal CalculaJuros()
+        public IHttpActionResult CalculaJuros()
         {
-            var valorInicial = Convert.ToDecimal(Request.Query["taxaJuros"]);
+            var valorInicial = Convert.ToDecimal(Request.Query["valorInicial"]);
             var tempoMeses = Convert.ToInt32(Request.Query["tempoMeses"]);
-
             var taxaJuros = TaxaJuros();
-            var truncarCasasDecimais = 2;
-            var valorFinal =
-                valorInicial * Convert.ToDecimal(Math.Pow(1 + Convert.ToDouble(taxaJuros), tempoMeses));
 
-            var sentinela = (decimal)Math.Pow(10, truncarCasasDecimais);
-            var temporareo = (int)(sentinela * valorFinal);
-            var valorTruncado = temporareo / sentinela;
+            var valorFinalTruncado = Juros.CalculaJurosCompostos(taxaJuros, valorInicial, tempoMeses, truncarCasasDecimais: 2);
 
-            return valorTruncado;
+            return valorFinalTruncado;
         }
     }
 }

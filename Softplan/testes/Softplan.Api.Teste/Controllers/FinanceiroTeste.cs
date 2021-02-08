@@ -43,7 +43,7 @@ namespace Softplan.Api.Teste.Controllers
         {
             // Preparar (base)
             const decimal valorEsperado = 1.01M;
-            var parametros = new[] { "taxajuros=1", "tempoMeses=1" };
+            var parametros = new[] { "valorInicial=1", "tempoMeses=1" };
 
             // Executar
             var valorObtido = await Get("financeiro/calculajuros", parametros, decimal.Parse);
@@ -57,7 +57,7 @@ namespace Softplan.Api.Teste.Controllers
         {
             // Preparar (base)
             const HttpStatusCode valorEsperado = HttpStatusCode.OK;
-            var parametros = new[] { "taxajuros=1", "tempoMeses=1" };
+            var parametros = new[] { "valorInicial=1", "tempoMeses=1" };
 
             // Executar
             var valorObtido = await GetStatusCode("financeiro/calculajuros", parametros);
