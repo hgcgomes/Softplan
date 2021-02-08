@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -18,17 +19,19 @@ namespace Softplan.Api.Teste.Controllers
             _disposable = false;
         }
 
-        protected async Task<T> Get<T>(string url, Func<string, T> parse)
+        protected async Task<T> Get<T>(string url, string[] parametros, Func<string, T> parse)
         {
-            var resultado = await _httpClient.GetAsync(url);
+            var parametrosToString = parametros.Any() ? "?" + string.Join("&", parametros) : string.Empty;
+            var resultado = await _httpClient.GetAsync(url + parametrosToString);
             var conteudo = await resultado.Content.ReadAsStringAsync();
             var valor = await Task.Run(() => parse(conteudo));
             return valor;
         }
 
-        protected async Task<HttpStatusCode> GetStatusCode(string url)
+        protected async Task<HttpStatusCode> GetStatusCode(string url, string[] parametros)
         {
-            var resultado = await _httpClient.GetAsync(url);
+            var parametrosToString = parametros.Any() ? "?" + string.Join("&", parametros) : string.Empty;
+            var resultado = await _httpClient.GetAsync(url + parametrosToString);
             var httpStatuscode = resultado.StatusCode;
             return httpStatuscode;
         }

@@ -15,7 +15,7 @@ namespace Softplan.Api.Teste.Controllers
             const decimal valorEsperado = 0.01M;
 
             // Executar
-            var valorObtido = await Get("financeiro/taxajuros", decimal.Parse);
+            var valorObtido = await Get("financeiro/taxajuros", new string [] { }, decimal.Parse);
 
             // Validar
             Assert.Equal(valorEsperado, valorObtido);
@@ -28,7 +28,7 @@ namespace Softplan.Api.Teste.Controllers
             const HttpStatusCode valorEsperado = HttpStatusCode.OK;
 
             // Executar
-            var valorObtido = await GetStatusCode("financeiro/taxajuros");
+            var valorObtido = await GetStatusCode("financeiro/taxajuros", new string[] { });
 
             // Validar
             Assert.Equal(valorEsperado, valorObtido);
@@ -39,15 +39,31 @@ namespace Softplan.Api.Teste.Controllers
         #region Calcula Juros
 
         [Fact]
-        public async Task FinanceiroController_Calcula_ValorZeroPontoZeroUm()
+        public async Task FinanceiroController_CalculaTaxaJurosUmEhTempoMesesUm_UmPontoZeroUm()
         {
-            Assert.True(false);
+            // Preparar (base)
+            const decimal valorEsperado = 1.01M;
+            var parametros = new[] { "taxajuros=1", "tempoMeses=1" };
+
+            // Executar
+            var valorObtido = await Get("financeiro/calculajuros", parametros, decimal.Parse);
+
+            // Validar
+            Assert.Equal(valorEsperado, valorObtido);
         }
 
         [Fact]
         public async Task FinanceiroController_CalculaJuros_StatusOk()
         {
-            Assert.True(false);
+            // Preparar (base)
+            const HttpStatusCode valorEsperado = HttpStatusCode.OK;
+            var parametros = new[] { "taxajuros=1", "tempoMeses=1" };
+
+            // Executar
+            var valorObtido = await GetStatusCode("financeiro/calculajuros", parametros);
+
+            // Validar
+            Assert.Equal(valorEsperado, valorObtido);
         }
 
         #endregion Calcula Juros
