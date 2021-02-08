@@ -16,11 +16,13 @@ namespace Softplan.Api
         public void ConfigureServices(IServiceCollection services)
         {
             DefaultConfigServicesStartup.Configure(services);
+            SwaggerConfigServiceStartup.Configure(services);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             DefaultConfigAppStartup.Configure(app, env);
+            SwaggerConfigAppStartup.Configure(app);
         }
     }
 }
