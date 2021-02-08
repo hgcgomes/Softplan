@@ -6,7 +6,12 @@ namespace Softplan.Api.Controllers
     [Route("[controller]")]
     public class FinanceiroController : ControllerBase
     {
-        [HttpGet, Route("taxaJuros")]
+        /// <summary>
+        /// Obtem taxa de juros
+        /// </summary>
+        /// <response code="200"></response>
+        /// <returns>Taxa de Juros</returns>
+        [HttpGet, Route("taxaJuros"), ProducesResponseType(typeof(decimal), 200)]
         public decimal TaxaJuros() => 0.01M;
     }
 }
