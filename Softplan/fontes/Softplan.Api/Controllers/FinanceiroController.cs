@@ -26,7 +26,7 @@ namespace Softplan.Api.Controllers
         /// <response code="200"></response>
         /// <returns></returns>
         [HttpGet, Route("calculaJuros"), ProducesResponseType(typeof(decimal), 200)]
-        public IHttpActionResult CalculaJuros()
+        public decimal CalculaJuros()
         {
             var valorInicial = Convert.ToDecimal(Request.Query["valorInicial"]);
             var tempoMeses = Convert.ToInt32(Request.Query["tempoMeses"]);
