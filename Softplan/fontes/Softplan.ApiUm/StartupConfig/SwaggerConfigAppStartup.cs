@@ -13,8 +13,8 @@ namespace Softplan.Api.StartupConfig
 
         private static void UseSwaggerUI(SwaggerUIOptions c)
         {
-            c.RoutePrefix = "swagger";
-            c.SwaggerEndpoint($"/{c.RoutePrefix}/v1/{c.RoutePrefix}.json", "v1");
+            c.RoutePrefix = "swaggerapium";
+            c.SwaggerEndpoint($"/swagger/v1/swagger.json", "v1");
         }
     }
 }
