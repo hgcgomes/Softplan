@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  softplan.apium:
+    image: ${DOCKER_REGISTRY-}softplanapium
+    build:
+      context: .
+      dockerfile: fontes/Softplan.ApiUm/Dockerfile
+
+  softplan.apidois:
+    image: ${DOCKER_REGISTRY-}softplanapidois
+    build:
+      context: .
+      dockerfile: fontes/Softplan.ApiDois/Dockerfile
+
