@@ -2,7 +2,6 @@
 using Softplan.Api.Camadas.Dominio;
 using Softplan.ApiDois.Camadas.Infra.Integracao;
 using System;
-using System.Web;
 
 namespace Softplan.Api.Controllers
 {
