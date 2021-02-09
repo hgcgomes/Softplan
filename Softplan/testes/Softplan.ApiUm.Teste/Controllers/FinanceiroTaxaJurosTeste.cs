@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Softplan.Api.Teste.Controllers
 {
-    public class FinanceiroTeste : ControllerBaseTeste
+    public class FinanceiroTaxaJurosTeste : ControllerBaseTeste
     {
         #region TaxaJuros
 

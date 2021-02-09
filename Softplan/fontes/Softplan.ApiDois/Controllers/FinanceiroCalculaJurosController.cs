@@ -7,11 +7,11 @@ namespace Softplan.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class FinanceiroController : ControllerBase
+    public class FinanceiroCalculaJurosController : ControllerBase
     {
         private readonly IApiUmIntegracao _apiUmIntegracao;
 
-        public FinanceiroController(IApiUmIntegracao apiUmIntegracao) =>
+        public FinanceiroCalculaJurosController(IApiUmIntegracao apiUmIntegracao) =>
             _apiUmIntegracao = apiUmIntegracao;
 
         /// <summary>

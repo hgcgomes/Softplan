@@ -6,7 +6,7 @@ namespace Softplan.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class FinanceiroController : ControllerBase
+    public class FinanceiroTaxaJurosController : ControllerBase
     {
         /// <summary>
         /// Obtem taxa de juros

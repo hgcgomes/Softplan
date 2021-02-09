@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Softplan.Api.Teste.Controllers
 {
-    public class FinanceiroTeste : ControllerBaseTeste
+    public class FinanceiroCalculaJurosTeste : ControllerBaseTeste
     {
         #region Calcula Juros
 

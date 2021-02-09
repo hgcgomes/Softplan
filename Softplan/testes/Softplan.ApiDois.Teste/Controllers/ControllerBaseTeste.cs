@@ -13,7 +13,7 @@ namespace Softplan.Api.Teste.Controllers
     {
         protected readonly HttpContext HttpContext;
         protected readonly ControllerContext ControllerContext;
-        protected readonly FinanceiroController FinanceiroController;
+        protected readonly FinanceiroCalculaJurosController FinanceiroController;
 
 
         private bool _disposable;
@@ -48,8 +48,8 @@ namespace Softplan.Api.Teste.Controllers
             return apiUmIntegracao.Object;
         }
 
-        private FinanceiroController FinanceiroControllerInstancia() =>
-            new FinanceiroController(ApiUmIntegracaoInstancia())
+        private FinanceiroCalculaJurosController FinanceiroControllerInstancia() =>
+            new FinanceiroCalculaJurosController(ApiUmIntegracaoInstancia())
             {
                 ControllerContext = ContextoController()
             };
