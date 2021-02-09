@@ -14,7 +14,7 @@ namespace Softplan.Api.StartupConfig
 
         private static void AddSwaggerGen(SwaggerGenOptions c)
         {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Softplan Test Asp.Net Core", Version = "v1" });
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Softplan Test Asp.Net Core - API 1", Version = "v1" });
 
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
