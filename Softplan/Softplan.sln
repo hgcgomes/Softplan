@@ -3,17 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.Api.Teste", "testes\Softplan.Api.Teste\Softplan.Api.Teste.csproj", "{98BC1AC6-B8B9-428B-AAD1-F54FF15828AE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.Api", "fontes\Softplan.Api\Softplan.Api.csproj", "{D1EA353B-89ED-4259-B6BB-E21FA4B8DEA2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.ApiUm", "fontes\Softplan.ApiUm\Softplan.ApiUm.csproj", "{E7818E85-8AC7-4372-BA66-D2575EEB2796}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.ApiUm.Teste", "testes\Softplan.ApiUm.Teste\Softplan.ApiUm.Teste.csproj", "{A57762DA-C9C4-4D03-AF9D-C1940805DC44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softplan.ApiDois.Teste", "testes\Softplan.ApiDois.Teste\Softplan.ApiDois.Teste.csproj", "{FE205E58-556D-4781-8FC9-11EBBC5CDD8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.ApiDois.Teste", "testes\Softplan.ApiDois.Teste\Softplan.ApiDois.Teste.csproj", "{FE205E58-556D-4781-8FC9-11EBBC5CDD8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softplan.ApiDois", "fontes\Softplan.ApiDois\Softplan.ApiDois.csproj", "{67A28927-4ADA-4413-B7F4-6388FA9D49A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softplan.ApiDois", "fontes\Softplan.ApiDois\Softplan.ApiDois.csproj", "{67A28927-4ADA-4413-B7F4-6388FA9D49A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{98BC1AC6-B8B9-428B-AAD1-F54FF15828AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98BC1AC6-B8B9-428B-AAD1-F54FF15828AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98BC1AC6-B8B9-428B-AAD1-F54FF15828AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98BC1AC6-B8B9-428B-AAD1-F54FF15828AE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D1EA353B-89ED-4259-B6BB-E21FA4B8DEA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1EA353B-89ED-4259-B6BB-E21FA4B8DEA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1EA353B-89ED-4259-B6BB-E21FA4B8DEA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1EA353B-89ED-4259-B6BB-E21FA4B8DEA2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E7818E85-8AC7-4372-BA66-D2575EEB2796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E7818E85-8AC7-4372-BA66-D2575EEB2796}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7818E85-8AC7-4372-BA66-D2575EEB2796}.Release|Any CPU.ActiveCfg = Release|Any CPU
