@@ -11,7 +11,7 @@ namespace Softplan.Api.Teste.Controllers
         public async Task FinanceiroController_CalculaTaxaJurosUmEhTempoMesesUm_UmPontoZeroUm()
         {
             // Preparar (base) 
-            var valorEsperado = 1M;
+            var valorEsperado = 1.01M;
             var queries = Parametros(valorInicial: 1, tempoMeses: 1);
             SetQueryString(queries);
             
@@ -21,21 +21,6 @@ namespace Softplan.Api.Teste.Controllers
             // Validar
             Assert.Equal(valorEsperado, valorObtido);
         }
-
-        [Fact]
-        public async Task FinanceiroController_CalculaJuros_StatusOk()
-        {
-        //    // Preparar (base)
-        //    const HttpStatusCode valorEsperado = HttpStatusCode.OK;
-        //    var parametros = new[] { "valorInicial=1", "tempoMeses=1" };
-
-        //    // Executar
-        //    var valorObtido = await GetStatusCode("financeiro/calculajuros", parametros);
-
-        //    // Validar
-        //    Assert.Equal(valorEsperado, valorObtido);
-        }
-
         
 
         #endregion Calcula Juros

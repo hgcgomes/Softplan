@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
+using Softplan.Api.Camadas.Dominio;
 using Softplan.Api.Controllers;
 using Softplan.ApiDois.Camadas.Infra.Integracao;
 using System;
@@ -43,7 +44,7 @@ namespace Softplan.Api.Teste.Controllers
         private IApiUmIntegracao ApiUmIntegracaoInstancia()
         {
             var apiUmIntegracao = new Mock<IApiUmIntegracao>();
-            apiUmIntegracao.Setup(aui => aui.ObtemTaxaJuros()).Returns(1.01M);
+            apiUmIntegracao.Setup(aui => aui.ObtemTaxaJuros()).Returns(Juros.TaxaJurosPadrao);
             return apiUmIntegracao.Object;
         }
 
