@@ -4,6 +4,6 @@ namespace Softplan.Api.Camadas.Dominio
 {
     public class Juros
     {
-        public const decimal TaxaJurosPadrao = 1.01M;
+        public const decimal TaxaJurosPadrao = 0.01M;
     }
 }
