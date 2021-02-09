@@ -9,6 +9,11 @@ namespace Softplan.Api.Controllers
     [Route("[controller]")]
     public class FinanceiroController : ControllerBase
     {
+        private readonly IApiUmIntegracao _apiUmIntegracao;
+
+        public FinanceiroController(IApiUmIntegracao apiUmIntegracao) =>
+            _apiUmIntegracao = apiUmIntegracao;
+
         /// <summary>
         /// Calcula valor final dos juros compostos
         /// </summary>
@@ -21,7 +26,7 @@ namespace Softplan.Api.Controllers
         {
             var valorInicial = Convert.ToDecimal(Request.Query["valorInicial"]);
             var tempoMeses = Convert.ToInt32(Request.Query["tempoMeses"]);
-            var taxaJuros = ApiUmIntegracao.ObtemTaxaJuros();
+            var taxaJuros = _apiUmIntegracao.ObtemTaxaJuros();
 
             var valorFinalTruncado = Juros.CalculaJurosCompostos(taxaJuros, valorInicial, tempoMeses, truncarCasasDecimais: 2);
 

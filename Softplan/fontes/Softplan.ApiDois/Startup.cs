@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Softplan.Api.StartupConfig;
+using Softplan.ApiDois.StartupConfig;
 
 namespace Softplan.Api
 {
@@ -17,6 +18,7 @@ namespace Softplan.Api
         {
             DefaultConfigServicesStartup.Configure(services);
             SwaggerConfigServiceStartup.Configure(services);
+            DependenceInjectServicesStartup.Configure(services);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

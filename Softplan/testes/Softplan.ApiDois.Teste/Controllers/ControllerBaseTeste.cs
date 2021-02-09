@@ -1,46 +1,68 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Moq;
+using Softplan.Api.Controllers;
+using Softplan.ApiDois.Camadas.Infra.Integracao;
+using System;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace Softplan.Api.Teste.Controllers
 {
     public abstract class ControllerBaseTeste : IDisposable
     {
-        private readonly HttpClient _httpClient;
+        protected readonly HttpContext HttpContext;
+        protected readonly ControllerContext ControllerContext;
+        protected readonly FinanceiroController FinanceiroController;
+
+
         private bool _disposable;
 
         protected ControllerBaseTeste()
         {
             // Preparar
-            _httpClient = new WebApplicationFactory<Startup>().CreateClient();
+            HttpContext = new DefaultHttpContext();
+            ControllerContext = new ControllerContext();
+            FinanceiroController = FinanceiroControllerInstancia();
+             
             _disposable = false;
         }
 
-        protected async Task<T> Get<T>(string url, string[] parametros, Func<string, T> parse)
+        protected string[] Parametros(decimal valorInicial, int tempoMeses) =>
+            new[] { $"{nameof(valorInicial)}={valorInicial}", $"{nameof(tempoMeses)}={tempoMeses}" };
+
+
+        protected void SetQueryString(string [] queries)
         {
-            var parametrosToString = parametros.Any() ? "?" + string.Join("&", parametros) : string.Empty;
-            var resultado = await _httpClient.GetAsync(url + parametrosToString);
-            var conteudo = await resultado.Content.ReadAsStringAsync();
-            var valor = await Task.Run(() => parse(conteudo));
-            return valor;
+            if (queries == null || !queries.Any()) return;
+
+            var queryString = "?" + string.Join("&", queries);
+
+            HttpContext.Request.QueryString = new QueryString(queryString);
         }
 
-        protected async Task<HttpStatusCode> GetStatusCode(string url, string[] parametros)
+        private IApiUmIntegracao ApiUmIntegracaoInstancia()
         {
-            var parametrosToString = parametros.Any() ? "?" + string.Join("&", parametros) : string.Empty;
-            var resultado = await _httpClient.GetAsync(url + parametrosToString);
-            var httpStatuscode = resultado.StatusCode;
-            return httpStatuscode;
+            var apiUmIntegracao = new Mock<IApiUmIntegracao>();
+            apiUmIntegracao.Setup(aui => aui.ObtemTaxaJuros()).Returns(1.01M);
+            return apiUmIntegracao.Object;
+        }
+
+        private FinanceiroController FinanceiroControllerInstancia() =>
+            new FinanceiroController(ApiUmIntegracaoInstancia())
+            {
+                ControllerContext = ContextoController()
+            };
+
+        private ControllerContext ContextoController()
+        {
+            ControllerContext.HttpContext = HttpContext;
+            return ControllerContext;
         }
 
         public void Dispose()
         {
             if (_disposable) return;
 
-            _httpClient.Dispose();
             _disposable = true;
         }
     }
